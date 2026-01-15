@@ -41,5 +41,5 @@ vim.keymap.set("n", "<leader>cr", ":CompetiTest run<CR>", { desc = "Run Testcase
 vim.keymap.set("n", "<leader>cs", ":CompetiTest show_ui<CR>", { desc = "Show CompetiTest UI" })
 vim.keymap.set("n", "<leader>cn", ":CompetiTest run_no_compile<CR>", { desc = "Run Testcases (No Compile)" })
 vim.keymap.set("n", "<leader>cc", ":CompetiTest convert<CR>", { desc = "Convert Testcases File" }) -- For single file vs multiple files
-vim.keymap.set("n", "<leader>cl", ":0r ~/Documents/cp/macro.cpp<CR>", {desc= "copy template to current file"})
+vim.keymap.set("n", "<leader>cl", ":%d_|0r ~/Documents/cp/macro.cpp<CR>", {desc= "copy template to current file"})
 
