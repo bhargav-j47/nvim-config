@@ -24,7 +24,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         --event = { "BufReadPre", "BufNewFile" },
-        ft = { 
+        ft = {
             "c",                -- C
             "cpp",              -- C++
             "objc",             -- Objective-C
@@ -50,11 +50,12 @@ return {
                 clangd={
                     cmd = {
                         vim.fn.stdpath("data") .. "/mason/bin/clangd",
-                        "--background-index=false",
+                        "--background-index", --scan all files for info and definitions
                         "--clang-tidy=false",
                         "--header-insertion=iwyu",   -- Auto-import headers 
                         "--completion-style=detailed", -- richer completion info
-                        "--function-arg-placeholders=true", -- Add placeholders for fn args
+                        "--function-arg-placeholders=true", -- Add placeholders for fn args"
+                        "--query-driver=/usr/bin/g++,/usr/bin/gcc,/usr/bin/*gcc*,/usr/bin/clang",
                     },
 
                     single_file_support = true,
