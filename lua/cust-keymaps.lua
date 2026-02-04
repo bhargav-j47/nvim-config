@@ -13,8 +13,12 @@ vim.keymap.set("n" , "<leader>wh" , "<C-w>s" ,{desc="horizontal split"})
 vim.keymap.set("n" , "<leader>wx" , ":close<CR>" , {desc="close current"})
 vim.keymap.set("n" , "<leader>wi" , ":vertical resize +5<CR>" ,{})
 vim.keymap.set("n" , "<leader>wd" , ":vertical resize -5<CR>" ,{})
+vim.keymap.set("n" , "<leader>wI" , ":horizontal resize +5<CR>" ,{})
+vim.keymap.set("n" , "<leader>wD" , ":horizontal resize -5<CR>" ,{})
 vim.keymap.set('n', '<C-h>', '<C-w>h', {desc="focus shift to left"})
 vim.keymap.set('n', '<C-l>', '<C-w>l',{desc="focus shift to right"})
+vim.keymap.set('n', '<C-j>', '<C-w>j',{desc="focus shift to down "})
+vim.keymap.set('n', '<C-k>', '<C-w>k',{desc="focus shift to up"})
 
 --delete without copy
 vim.keymap.set('v', 'x', '"_x', { noremap = true })
