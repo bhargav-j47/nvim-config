@@ -2,6 +2,7 @@ vim.g.mapleader=" "
 
 --generic
 vim.keymap.set('i', 'jk' , '<ESC>',{})
+vim.keymap.set('t', '<ESC><ESC>', [[<C-\><C-n>]], { noremap = true })
 
 --telescope
 vim.keymap.set('n' , "<leader>fg" , ":Telescope live_grep<CR>" ,{})
