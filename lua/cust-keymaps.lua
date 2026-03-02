@@ -27,10 +27,10 @@ vim.keymap.set('n', 'x', '"_x', { noremap = true })
 
 --lsp
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-vim.keymap.set('n', 'gl', vim.diagnostic.open_float, { desc = "Show diagnostic error msg" })
-vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
+vim.keymap.set('n', '<leader>gl', vim.diagnostic.open_float, { desc = "Show diagnostic error msg" })
+vim.keymap.set('n', '<leader>gD', vim.lsp.buf.declaration, {})
+vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {})
+vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, {})
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, {})
 
 --neotree
