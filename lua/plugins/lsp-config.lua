@@ -12,7 +12,8 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = {"lua_ls","clangd","cmake","cssls",
-                                    "html","pyright","ts_ls","tailwindcss",},
+                                    "html","pyright","ts_ls","tailwindcss","gopls",
+                                    "rust_analyzer","bashls",},
                 automatic_enable=false,
             })
             vim.diagnostic.config({
@@ -47,6 +48,7 @@ return {
 
         opts = {
             servers = {
+
                 clangd={
                     cmd = {
                         vim.fn.stdpath("data") .. "/mason/bin/clangd",
@@ -84,6 +86,7 @@ return {
 
                 },
 
+                --lua
                 lua_ls = {
                     settings = {
                         Lua = {
@@ -102,6 +105,45 @@ return {
                         },
                     },
                 },
+
+                -- Go Configuration
+                gopls = {
+                    settings = {
+                        gopls = {
+                            analyses = {
+                                unusedparams = true,
+                            },
+                            staticcheck = true,
+                            gofumpt = true,
+                        },
+                    },
+                },
+
+                -- Rust Configuration
+                rust_analyzer = {
+                    settings = {
+                        ['rust-analyzer'] = {
+                            checkOnSave = {
+                                command = "clippy",
+                            },
+                            procMacro = {
+                                enable = true,
+                            },
+                        },
+                    },
+                },
+
+                --bash
+                bashls = {
+                    filetypes = { "sh", "bash" },
+                    settings = {
+                        bashIde = {
+                            -- This helps bashls find shellcheck if it's in your path
+                            shellcheckPath = "shellcheck",
+                        }
+                    }
+                },
+
                 pyright = {},
                 ts_ls = {},
                 cssls = {},
@@ -110,12 +152,16 @@ return {
         },
 
         config = function(_, opts)
-            local lspconfig = require('lspconfig')
+            --local lspconfig = require('lspconfig')  this is depreceted
             for server, config in pairs(opts.servers) do
                 -- passing config.capabilities to blink.cmp merges with the capabilities in your
                 -- `opts[server].capabilities, if you've defined it
                 config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-                lspconfig[server].setup(config)
+
+                --lspconfig[server].setup(config) this is depreceted
+
+                vim.lsp.config(server,config)
+                vim.lsp.enable(server)
             end
         end
     },
