@@ -28,11 +28,11 @@ return {
         ft = {
             "c", "cpp", "objc", "objcpp",
             "python", "lua", "rust",
-            "javascript", "javascripttreact", "typescript", "typescriptreact",
+            "javascript", "javascriptreact", "typescript", "typescriptreact",
             "html", "css", "scss",
             "go", "gomod",
             "sh", "bash",
-    },
+        },
         dependencies = {
             'saghen/blink.cmp',
             "williamboman/mason.nvim",
@@ -55,16 +55,14 @@ return {
 
                     single_file_support = true,
 
-                    root_dir = function(fname)
-                        local util = require("lspconfig.util")
-                -- Try standard roots
-                        local root = util.root_pattern(".git", "compile_commands.json", "compile_flags.txt")(fname)
-                -- DEBUG PRINT: This will show up in :messages
+                    root_dir = function(bufnr, on_dir)
+                        local root = vim.fs.root(bufnr, { ".git", "compile_commands.json", "compile_flags.txt" })
                         if root then
-                            return root
+                            on_dir(root)
+                            return
                         end
-                        local file_dir = vim.fs.dirname(fname)
-                        return file_dir
+                        -- Fallback to the file's directory
+                        on_dir(vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr)))
                     end,
 
                     on_attach = function(client, bufnr)
