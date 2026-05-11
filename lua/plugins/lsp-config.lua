@@ -26,19 +26,12 @@ return {
         "neovim/nvim-lspconfig",
         --event = { "BufReadPre", "BufNewFile" },
         ft = {
-            "c",                -- C
-            "cpp",              -- C++
-            "objc",             -- Objective-C
-            "objcpp",           -- Objective-C++
-            "python",           -- Python
-            "javascript",       -- JavaScript
-            "javascriptreact",  -- React/JSX
-            "typescript",       -- TypeScript 
-            "typescriptreact",  -- TSX
-            "html",             -- HTML
-            "css",              -- CSS
-            "scss",             -- SCSS (Sass)
-            "lua"               -- Lua
+            "c", "cpp", "objc", "objcpp",
+            "python", "lua", "rust",
+            "javascript", "javascripttreact", "typescript", "typescriptreact",
+            "html", "css", "scss",
+            "go", "gomod",
+            "sh", "bash",
     },
         dependencies = {
             'saghen/blink.cmp',
