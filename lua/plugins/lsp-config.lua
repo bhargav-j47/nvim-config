@@ -114,7 +114,7 @@ return {
                 rust_analyzer = {
                     settings = {
                         ['rust-analyzer'] = {
-                            checkOnSave = {
+                            check = {
                                 command = "clippy",
                             },
                             procMacro = {
