@@ -13,7 +13,7 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {"lua_ls","clangd","cmake","cssls",
                                     "html","pyright","ts_ls","tailwindcss","gopls",
-                                    "rust_analyzer","bashls",},
+                                    "rust_analyzer","bashls","asm_lsp"},
                 automatic_enable=false,
             })
             vim.diagnostic.config({
@@ -32,6 +32,7 @@ return {
             "html", "css", "scss",
             "go", "gomod",
             "sh", "bash",
+            "asm", "s", "S",
         },
         dependencies = {
             'saghen/blink.cmp',
