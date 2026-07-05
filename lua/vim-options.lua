@@ -7,8 +7,6 @@ vim.opt.encoding = "utf-8"
 vim.opt.mouse = "a"
 vim.opt.showcmd = true
 vim.opt.showmatch = true
-vim.opt.textwidth = 80
-vim.opt.formatoptions:append("c")
 
 -- Tabs & Indentation
 vim.opt.expandtab = true
