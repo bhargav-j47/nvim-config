@@ -38,6 +38,16 @@ vim.keymap.set('n', '<leader>no', ':Neotree toggle<CR>', {})
 
 --harpoon in harpoon.lua itself
 
+--vim-fugitive
+   -- NORMAL MODE
+vim.keymap.set('n', '<leader>gtb', '<cmd>Git blame<cr>', { desc = 'Git Blame' })
+vim.keymap.set('n', '<leader>gtl', '<cmd>Git log %<cr>', { desc = 'Git Log (Current File)' })
+vim.keymap.set('n', '<leader>gtL', '<cmd>Git log<cr>', { desc = 'Git Log (Repository)' })
+vim.keymap.set('n', '<leader>gts', '<cmd>Git<cr>', { desc = 'Git Status' })
+    -- VISUAL MODE (Operates only on the highlighted lines)
+vim.keymap.set('v', '<leader>gtb', ':Git blame<cr>', { desc = 'Git Blame (Selection)' })
+vim.keymap.set('v', '<leader>gtl', ':Gclog<cr>', { desc = 'Git Log (Selection)' })
+
 --cp competitest
 vim.keymap.set("n", "<leader>ca", ":CompetiTest add_testcase<CR>", { desc = "Add Testcase" })
 vim.keymap.set("n", "<leader>ce", ":CompetiTest edit_testcase<CR>", { desc = "Edit Testcase" })
